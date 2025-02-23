@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forum - Topic List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color: #eae9dc; */
+            background-color: hsla(0, 21%, 85%, 0.954);
+            margin: 0;
+            padding: 0;
+            color: black; 
+            position: relative;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: black; 
+            margin-bottom: 20px;
+            text-decoration: underline;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #B38CB4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-left {
+            margin-right: 10px;
+        }
+
+        .button-right {
+            margin-left: auto; 
+            position: absolute;
+            top: 30px;
+            left: 50px;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.button:hover {
+            background-color: rgb(42, 38, 38);
+        }
+        .cont li{
+            border: 2px solid black;
+        }
+        .cont{
+            border: 2px solid black;
+            margin: 12px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Topic List</h1>
+        <ul>
+            {% for topic in topics %}
+            <div class="cont container">
+                <li>{{ topic.title }}</li>
+                <a href="{% url 'topic_detail' pk=topic.pk %}" class="button button-left">View Details</a>
+            </div>
+            {% endfor %}
+        </ul>
+        <div class="button-container">
+            <a href="{% url 'profile' %}" class="button button-right">Back To Home</a>
+        </div>
+    </div>
+</body>
+</html>

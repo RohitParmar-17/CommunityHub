@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marketplace - Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color: #f9f9f9; */
+            background-color: hsla(0, 21%, 85%, 0.954);
+            margin: 0;
+            padding: 0;
+            color: black; 
+            position: relative;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: black; 
+            margin-bottom: 20px;
+            text-decoration: underline;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product {
+            background-color: rgb(206, 168, 208);;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .product p {
+            margin: 0;
+            color: black;
+        }
+
+        .product a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black; 
+            color: #fff; 
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .product a:hover {
+            background-color: rgb(42, 38, 38); 
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black; 
+            color: #fff; 
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 30px;
+            left: 50px;
+        }
+
+        .back-button:hover {
+            background-color: rgb(42, 38, 38); 
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: right;
+        }
+       
+        .cont{
+            border: 2px solid black;
+            margin: 12px;
+            border-radius: 5px;
+        }
+
+        form {
+            margin-top: 10px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            width: 100px; 
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: rgb(3, 125, 76);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: rgb(5, 182, 111);
+        }
+        .right-button {
+            display: inline-block;
+            padding: 10px 40px;
+            background-color: black; 
+            color: #fff; 
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 30px;
+            right: 50px;
+        }
+        .right-button a{
+            color: white;
+            text-decoration: none;
+        }
+        .right-button:hover {
+            background-color: rgb(42, 38, 38); 
+        }
+        .quantity-btn {
+            background-color: #6a0dad;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 8px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 16px; 
+        }
+
+        .quantity-btn:hover {
+            background-color: #490982;
+        }
+        .quantity-selector{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product List</h1>
+        {% for product in products %}
+        <div class="cont product" data-item="{{ product.id }}">
+            <h3>{{ product.name }}</h3>
+            <p>Price: <b>{{ product.price }}</b></p>
+            <a href="{% url 'product_detail' pk=product.pk %}">View Details</a>
+            <form class="add-to-cart-form" action="{% url 'add_to_cart' product.id %}" method="post">
+                {% csrf_token %}
+                <div class="quantity-selector">
+                    <button type="button" class="quantity-btn" data-action="decrement">-</button>
+                    <input type="number" name="quantity" value="1" min="1">
+                    <button type="button" class="quantity-btn" data-action="increment">+</button>
+                </div>
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+        {% endfor %}
+        <div class="button-container">
+            <a href="{% url 'profile' %}" class="back-button">Back To Home</a>
+        </div>
+        <div class="button-container right-button">
+            <a href="{% url 'view_cart' %}" >View Cart</a>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.dataset.action;
+                const input = this.parentElement.querySelector('input[type="number"]');
+                let value = parseInt(input.value);
+
+                if (action === 'increment') {
+                    value++;
+                } else if (action === 'decrement' && value > 1) {
+                    value--;
+                }
+
+                input.value = value;
+            });
+        });
+
+        document.querySelectorAll('.add-to-cart-form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        const successAlert = document.createElement('div');
+                        successAlert.textContent = 'Item added to cart successfully';
+                        successAlert.style.backgroundColor = 'green';
+                        successAlert.style.color = 'white';
+                        successAlert.style.padding = '10px';
+                        successAlert.style.position = 'fixed';
+                        successAlert.style.top = '0';
+                        successAlert.style.left = '0';
+                        successAlert.style.width = '100%';
+                        successAlert.style.textAlign = 'center';
+                        document.body.appendChild(successAlert);
+                        
+                        setTimeout(() => {
+                            successAlert.remove();
+                        }, 2000);
+                    } else {
+                        console.error('Failed to add item to cart');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

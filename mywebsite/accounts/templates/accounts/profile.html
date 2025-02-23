@@ -1,0 +1,551 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Profile</title>
+    <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 17px 20px;
+    }
+    .navbar-title {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .navbar-title a{
+        text-decoration: none;
+    }
+    .navbar-items {
+      display: flex;
+    }
+    .navbar-item a{
+      margin-right: 20px;
+      cursor: pointer;
+      color: white;
+    }
+    .navbar-item:last-child {
+      margin-right: 0;
+    }
+    .user-section {
+      display: flex;
+      align-items: center;
+    }
+    .user-name {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    .logout-link {
+      color: white;
+      text-decoration: none;
+    }
+    a{
+        color: white;
+    }
+    a:hover{
+        color: white;
+    }
+    .logout-link a{
+        padding: 10px;
+    }
+    .logout-link a:hover{
+        background-color: gray;
+        color: black;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+
+    .content {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 0px;
+    padding: 0 50px;
+}
+
+.features {
+    margin-top: 50px;
+}
+
+.features h3 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.features ul {
+    list-style: none;
+}
+
+.features ul li {
+    margin-bottom: 10px;
+}
+
+.testimonials {
+    margin-top: 50px;
+}
+
+.testimonials h3 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90vw;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.testimonial blockquote {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial cite {
+    font-weight: bold;
+}
+
+.contact {
+    margin-top: 50px;
+}
+
+.contact h3 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact ul {
+    list-style: none;
+}
+
+.contact ul li {
+    margin-bottom: 10px;
+}
+.container p{
+  width: 90vw;
+}
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-title"><a href="{% url 'profile'%}">CommunityHub</a></div>
+        <div class="navbar-items">
+            <div class="navbar-item"><a href="{% url 'post_list'%}">Blogs</a></div>
+            <div class="navbar-item"><a href="{% url 'topic_list'%}">Forums</a></div>
+            <div class="navbar-item"><a href="{% url 'product_list'%}">MarketPlace</a></div>
+        </div>
+        <div class="user-section">
+            <i class="fas fa-user"></i>
+            <div class="user-name">{{ request.user.username }}</div>
+            <div class="logout-link"><a href="{% url 'logout' %}">logout</a></div>
+        </div>
+    </div>
+    <div class="content">
+    <div class="container">
+        <h2>Welcome to CommunityHub</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam voluptatem unde aliquid officiis eligendi exercitationem blanditiis, repudiandae maxime voluptas reprehenderit minus in, itaque vero non vel magni perferendis. Reprehenderit tempora possimus ipsa error repellat eveniet sequi nobis fuga! Dolore ea adipisci laudantium quod earum laboriosam enim id explicabo cupiditate provident, quasi pariatur animi. Officia, cupiditate ex vero deleniti labore est rem quae ea animi? Accusamus in ipsa reprehenderit! Quam, velit!</p>
+        <div class="features">
+            <h3>Key Features</h3>
+            <ul>
+                <li>User-friendly interface</li>
+                <li>Secure authentication system</li>
+                <li>Community forums for discussions</li>
+                <li>Marketplace for buying and selling</li>
+            </ul>
+        </div>
+        <div class="testimonials">
+            <h3>What Our Users Say</h3>
+            <div class="testimonial">
+                <blockquote>
+                    "CommunityHub has transformed the way I connect with others. I've found valuable information and made new friends through the forums."
+                </blockquote>
+                <cite>- Rohit Parmar</cite>
+            </div>
+            <div class="testimonial">
+                <blockquote>
+                    "The marketplace on CommunityHub is fantastic. I've sold several items quickly and easily."
+                </blockquote>
+                <cite>- Varun Jiyani</cite>
+            </div>
+        </div>
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>If you have any questions or feedback, feel free to get in touch with us:</p>
+            <ul>
+                <li>Email: moyemoye17@gmail.com</li>
+                <li>Phone: 9154767483</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Profile</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eae9dc;
+        }
+
+        .navbar {
+            background: linear-gradient(45deg, #6c5b7b, #8b78e6, #e066ff, #ffb6c1);
+            /* background-color: #5f788a; */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 17px 20px;
+        }
+
+        .navbar-title {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar-title a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .navbar-items {
+            display: flex;
+        }
+
+        .navbar-item a {
+            margin-right: 20px;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-item:last-child {
+            margin-right: 0;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-section .fa-user {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .user-name {
+            font-weight: bold;
+            padding: 0px 5px;
+        }
+
+        .logout-link {
+            color: white;
+        }
+
+        .logout-link a {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .logout-link a:hover {
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .content {
+            padding: 30px 0;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .features,
+        .testimonials,
+        .contact {
+            margin-top: 50px;
+        }
+
+        .features h3,
+        .testimonials h3,
+        .contact h3 {
+            color: black;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .features ul,
+        .testimonials ul,
+        .contact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features ul li,
+        .testimonials ul li,
+        .contact ul li {
+            margin-bottom: 10px;
+        }
+
+        .testimonial {
+            background-color: hsla(206, 39%, 80%, 0.951);
+            border: 1px solid #f67280;
+            border-radius: 5px;
+            width: 90vw;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial blockquote {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .testimonial cite {
+            font-weight: bold;
+        }
+        .contact{
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .contact h3 {
+            color: black;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact ul {
+            list-style: none;
+        }
+
+        .contact ul li {
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fadeInUp {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .rating-button {
+            background-image: linear-gradient(45deg, #8a2be2, #4b0082);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .rating-button:hover {
+            background-image: linear-gradient(45deg, #800080, #4b0082);
+        }
+
+        .rating-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(138, 43, 226, 0.5);
+        }
+
+        .rate{
+            margin-top: 10px;
+        }
+
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .close {
+            font-size: 30px;
+            color: #000000;
+        }
+
+        .close:hover {
+            color: #999999;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #8a2be2; 
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #6a0dad;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-title"><a href="{% url 'profile'%}">CommunityHub</a></div>
+        <div class="navbar-items">
+            <div class="navbar-item"><a href="{% url 'post_list'%}">Blogs</a></div>
+            <div class="navbar-item"><a href="{% url 'topic_list'%}">Forums</a></div>
+            <div class="navbar-item"><a href="{% url 'product_list'%}">MarketPlace</a></div>
+        </div>
+        <div class="user-section">
+            <i class="fas fa-user"></i>
+            <div class="user-name">{{ request.user.username }}</div>
+            <div class="logout-link"><a href="{% url 'logout' %}">logout</a></div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="container">
+            <h2>Welcome to CommunityHub</h2>
+            <p>At CommunityHub, we prioritize fostering connections and empowering communities. Our platform offers a diverse array of features to enrich your online experience: Blogs provide insightful articles and engaging content curated by our community members. Forums facilitate vibrant discussions where you can seek advice, share experiences, and explore new interests. Explore our Marketplace to discover unique items and connect with sellers within our community. We firmly believe in the transformative power of community to inspire positive change. Join us on our journey to cultivate a vibrant and inclusive community where everyone's voice is valued and heard.</p>
+            <div class="features">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>User-friendly interface</li>
+                    <li>Secure authentication system</li>
+                    <li>Community forums for discussions</li>
+                    <li>Marketplace for buying and selling</li>
+                </ul>
+            </div>
+            <div class="testimonials">
+                <h3>What Our Users Say</h3>
+                <div class="testimonial fadeInUp">
+                    <blockquote>
+                        "CommunityHub has transformed the way I connect with others. I've found valuable information and made new friends through the forums."
+                    </blockquote>
+                    <cite>- Rohit Parmar</cite>
+                </div>
+                <div class="testimonial fadeInUp">
+                    <blockquote>
+                        "The marketplace on CommunityHub is fantastic. I've sold several items quickly and easily."
+                    </blockquote>
+                    <cite>- Varun Jiyani</cite>
+                </div>
+            </div>
+            <div class="contact fadeInUp">
+                <h3>Contact Us</h3>
+                <p>If you have any questions or feedback, feel free to get in touch with us:</p>
+                <ul>
+                    <li>Email: moyemoye17@gmail.com</li>
+                    <li>Phone: 9154767483</li>
+                </ul>
+            </div>
+            <div class="rate fadeInUp">
+                <button type="button" class="btn btn-primary rating-button" data-toggle="modal" data-target="#ratingModal">
+                    Rate Your Experience
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="ratingModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ratingModalLabel">Rate Your Experience</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ratingForm">
+                        <div class="form-group">
+                            <label for="rating">Rating:</label>
+                            <input type="number" class="form-control" id="rating" min="1" max="5" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Rating</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#ratingForm').submit(function(event) {
+                event.preventDefault();
+                var rating = $('#rating').val();
+                alert("Thank you for rating " + rating + " out of 5!");
+                $('#ratingModal').modal('hide');
+            });
+        });
+    </script>
+</body>
+</html>
+
