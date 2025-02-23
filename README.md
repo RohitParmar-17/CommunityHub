@@ -5,7 +5,17 @@ CommunityHub is a web platform built using Django that offers a comprehensive sp
 
 ## Screenshots
 
-<img src="screenshots/home.png" alt="Home Page" width="100%">
+<img src="https://github.com/RohitParmar-17/CommunityHub/blob/main/screenshots/django1.png" alt="Home Page" width="100%">
+
+<img src="https://github.com/RohitParmar-17/CommunityHub/blob/main/screenshots/django2.png" alt="Home Page" width="100%">
+
+<img src="https://github.com/RohitParmar-17/CommunityHub/blob/main/screenshots/django3.png" alt="Home Page" width="100%">
+
+<img src="https://github.com/RohitParmar-17/CommunityHub/blob/main/screenshots/django4.png" alt="Home Page" width="100%">
+
+<img src="https://github.com/RohitParmar-17/CommunityHub/blob/main/screenshots/django5.png" alt="Home Page" width="100%">
+
+<img src="https://github.com/RohitParmar-17/CommunityHub/blob/main/screenshots/django6.png" alt="Home Page" width="100%">
 
 ## Features
 - **Blogs**: Users can read blog posts on various topics.
